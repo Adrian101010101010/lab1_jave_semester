@@ -1,71 +1,58 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Helicopter {
-
-    private final int id=100;
-    private  String model;
-    private int currentAltitude;
-    private final int maxAltitude=1000;
+    private final int id = 100;
+    private final int maxAltitude = 1000;
     private final int fuelCapacity = 30;
+    private String model;
+    private int currentAltitude;
     private int currentFuel = 10;
 
+    private static final Helicopter defaultHelicopter = new Helicopter();
 
-private static final Helicopter defaultHelicopter =new Helicopter();
-
-public Helicopter(){}
-
-    public static Helicopter getInstance(){
-    return defaultHelicopter;
-    };
-    public String toString(){
-    return "Helicopter{"
-            + "id"+id+"model"+model+'}';
-    }
-    public Helicopter takeOff(){
-        this.currentAltitude=100;
-        System.out.println("Current altitude is ");
-        System.out.println(this.currentAltitude);
+    public static Helicopter getInstance() {
         return defaultHelicopter;
     }
-    public Helicopter ascend(int altitude){
 
-        int newAltitude= this.currentAltitude+altitude;
-        if (newAltitude>maxAltitude){
+    public Helicopter takeOff() {
+        this.currentAltitude = 100;
+        return defaultHelicopter;
+    }
+
+    public Helicopter ascend(int altitude) {
+        int newAltitude = this.currentAltitude + altitude;
+        if (newAltitude > maxAltitude) {
             this.currentAltitude = maxAltitude;
-        }
-       else this.currentAltitude = newAltitude;
-        System.out.println("Ascended to altitude ");
-        System.out.println(this.currentAltitude);
+        } else this.currentAltitude = newAltitude;
         return defaultHelicopter;
     }
-    public Helicopter descend(int altitude){
+
+    public Helicopter descend(int altitude) {
         int newAltitude = this.currentAltitude - altitude;
-        if(newAltitude < 0) {
+        if (newAltitude < 0) {
             this.currentAltitude = 0;
         } else this.currentAltitude = newAltitude;
-        System.out.println("Descended to altitude ");
-        System.out.println(this.currentAltitude);
         return defaultHelicopter;
     }
-    public Helicopter refuel(int fuel){
+
+    public void refuel(int fuel) {
         int fuelUpdated = this.currentFuel + fuel;
-        if (fuelUpdated> this.fuelCapacity) {
-            System.out.println("The tank is full");
+        if (fuelUpdated > this.fuelCapacity) {
             this.currentFuel = this.fuelCapacity;
         } else this.currentFuel = fuelUpdated;
-        return defaultHelicopter;
     }
-    public static void main(String ... args){
+
+    public static void main(String... args) {
         Helicopter helicopter = new Helicopter();
-        System.out.println(helicopter);
-        helicopter.takeOff();
-        helicopter.ascend(20);
-        helicopter.descend(10);
-        helicopter.refuel(100);
+        helicopter.takeOff().ascend(20).descend(10).refuel(100);
+        Helicopter helicopter1 = getInstance();
+        helicopter1.takeOff();
     }
+
 }
