@@ -6,24 +6,19 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class Helicopter extends AerialVehicle {
+public class Helicopter {
     private final int id = 100;
     private final int maxAltitude = 1000;
     private final int fuelCapacity = 30;
+    private String model;
     private int currentAltitude;
     private int currentFuel = 10;
-    private int mass;
 
+    private static final Helicopter defaultHelicopter = new Helicopter();
 
-
-    public Helicopter(int currentAltitude,String model){
-        this.currentAltitude = currentAltitude;
-        this.manufacturer = model;
+    public static Helicopter getInstance() {
+        return defaultHelicopter;
     }
-
-    private final static Helicopter defaultHelicopter = new Helicopter();
-
 
     public Helicopter takeOff() {
         this.currentAltitude = 100;
@@ -46,21 +41,18 @@ public class Helicopter extends AerialVehicle {
         return defaultHelicopter;
     }
 
-    public Helicopter refuel(int fuel) {
+    public void refuel(int fuel) {
         int fuelUpdated = this.currentFuel + fuel;
         if (fuelUpdated > this.fuelCapacity) {
             this.currentFuel = this.fuelCapacity;
         } else this.currentFuel = fuelUpdated;
-        return defaultHelicopter;
     }
-    public Helicopter accelerateHelicopter(int speed){
-        int newSpeed;
-        newSpeed = speed;
-        if (newSpeed>maxSpeed){
-            newSpeed = maxSpeed;
-            maxSpeed = 300;
-        }
 
-        return defaultHelicopter;
+    public static void main(String... args) {
+        Helicopter helicopter = new Helicopter();
+        helicopter.takeOff().ascend(20).descend(10).refuel(100);
+        Helicopter helicopter1 = getInstance();
+        helicopter1.takeOff();
     }
+
 }
