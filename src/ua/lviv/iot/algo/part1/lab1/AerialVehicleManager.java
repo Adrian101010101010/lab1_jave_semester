@@ -50,6 +50,5 @@ public class AerialVehicleManager {
         list.stream().filter(a -> a.getMaxDeliveryWeight()<1000 )
                 .forEach(System.out::println);
 
-
     }
 }

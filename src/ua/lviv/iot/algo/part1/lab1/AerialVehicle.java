@@ -9,7 +9,6 @@ public abstract class AerialVehicle {
     private int FlyingDistance;
     private int DeliveryWeight;
 
-
     public int getMaxFlyingDistance(){return FlyingDistance;}
     public int getMaxDeliveryWeight(){return DeliveryWeight; }
 }

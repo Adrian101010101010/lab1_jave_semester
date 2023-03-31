@@ -60,7 +60,6 @@ public class Helicopter extends AerialVehicle {
             newSpeed = maxSpeed;
             maxSpeed = 300;
         }
-
         return defaultHelicopter;
     }
 }
