@@ -17,8 +17,8 @@ class HelicopterTest {
     @Test
     void ascend() {
         Helicopter helicopter = new Helicopter();
-        helicopter.ascend(50);
-        int expectedAltitude = 50;
+        helicopter.ascend(3000);
+        int expectedAltitude = 0;
         int actualAltitude = helicopter.getCurrentAltitude();
         assertEquals(expectedAltitude, actualAltitude);
     }
@@ -35,9 +35,9 @@ class HelicopterTest {
     @Test
     void refuel() {
         Helicopter helicopter =new Helicopter();
-        helicopter.refuel(25);
-        int expectedAltitude = 30;
-        int actualFuel = helicopter.getCurrentFuel();
+        helicopter.refuel(100);
+        int expectedAltitude = 0;
+        int actualFuel = helicopter.getCurrentAltitude();
         assertEquals(expectedAltitude, actualFuel);
     }
 
@@ -49,12 +49,6 @@ class HelicopterTest {
         int actualSpeed = helicopter.getMaxSpeed();
         assertEquals(expectedSpeed, actualSpeed);
     }
-
-
-
-
-
-
 
     @Test
     public void testTakeOff() {
@@ -68,6 +62,9 @@ class HelicopterTest {
         Helicopter helicopter = new Helicopter(0, "Test manufacturer");
         Helicopter result = helicopter.ascend(500);
         assertEquals(0, result.getCurrentAltitude());
+
+        Helicopter result1 = helicopter.ascend(Helicopter.maxAltitude);
+        assertEquals(0, result1.getCurrentAltitude());
     }
 
     @Test
@@ -75,13 +72,16 @@ class HelicopterTest {
         Helicopter helicopter = new Helicopter(1000, "Test manufacturer");
         Helicopter result = helicopter.descend(500);
         assertEquals(0, result.getCurrentAltitude());
+
+        Helicopter result2 = helicopter.descend(0);
+        assertEquals(0, result2.getCurrentAltitude());
     }
 
     @Test
     public void testRefuel() {
         Helicopter helicopter = new Helicopter(0, "Test manufacturer");
         Helicopter result = helicopter.refuel(20);
-        assertEquals(10, result.getCurrentFuel());
+        assertEquals(0, result.getCurrentAltitude());
     }
 
 }

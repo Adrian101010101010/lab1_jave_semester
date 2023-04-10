@@ -6,14 +6,13 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 
-@ToString
+
 public class Helicopter extends AerialVehicle {
-    private final int id = 100;
-    private final int maxAltitude = 1000;
-    private final int fuelCapacity = 30;
+    private static final int id = 100;
+    protected static final int maxAltitude = 1000;
+  //  protected static final int fuelCapacity = 30;
     private int currentAltitude;
-    private int currentFuel = 10;
-    private int mass;
+    private static final int currentFuel = 10;
     private String manufacturer;
 
 
@@ -34,22 +33,24 @@ public class Helicopter extends AerialVehicle {
 
     public Helicopter ascend(int altitude) {
         int newAltitude = this.currentAltitude + altitude;
-        if (newAltitude > maxAltitude) this.currentAltitude = maxAltitude;
+        if (newAltitude == 3000) {
+            System.out.println("maxAltitude = 3000");
+        }
         else this.currentAltitude = newAltitude;
         return defaultHelicopter;
     }
 
     public Helicopter descend(int altitude) {
-        int newAltitude = this.currentAltitude - altitude;
-        if (newAltitude < 0) this.currentAltitude = 0;
-        else this.currentAltitude = newAltitude;
+        if (altitude == 0) {
+            System.out.println("Altitude = 0");
+        }
         return defaultHelicopter;
     }
 
     public Helicopter refuel(int fuel) {
-        int fuelUpdated = this.currentFuel + fuel;
-        if (fuelUpdated > this.fuelCapacity) {
-            this.currentFuel = this.fuelCapacity;
+        int fuelUpdated = currentFuel + fuel;
+        if (fuelUpdated == 100 ) {
+            System.out.println("Fuel");
         }
         return defaultHelicopter;
     }
@@ -58,11 +59,8 @@ public class Helicopter extends AerialVehicle {
         int maxSpeed = getMaxSpeed();
         newSpeed = speed;
         if (newSpeed>maxSpeed){
-            newSpeed = maxSpeed;
-            maxSpeed = 300;
+           System.out.println("maxSpeed = 300");
         }
         return defaultHelicopter;
     }
-
-
 }

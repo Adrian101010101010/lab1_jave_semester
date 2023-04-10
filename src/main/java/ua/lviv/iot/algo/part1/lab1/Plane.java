@@ -20,7 +20,11 @@ public class Plane extends AerialVehicle{
         int newSpeed;
         int maxSpeed = getMaxSpeed();
         newSpeed = speedNow + acceleration;
-        if (newSpeed == maxSpeed){
+        if (maxSpeed == 568){
+            System.out.println("maxSpeed = 568");
+        }
+        if (newSpeed == 360){
+            System.out.println("newSpeed = 360");
         }
         return defaultPlane;
     }
