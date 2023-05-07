@@ -40,10 +40,10 @@ public class PlaneServiceImpl implements PlaneServicee {
         plane.setYear(updatedPlane.getYear());
         plane.setManufacturer(updatedPlane.getManufacturer());
         plane.setSeats(updatedPlane.getSeats());
-       // plane.setEngines(updatedPlane.getEngines());
+        // plane.setEngines(updatedPlane.getEngines());
         plane.setMaxSpeed(updatedPlane.getMaxSpeed());
-      //  plane.setMaxDistance(updatedPlane.getMaxDistance());
-       // plane.setPrice(updatedPlane.getPrice());
+        //  plane.setMaxDistance(updatedPlane.getMaxDistance());
+        // plane.setPrice(updatedPlane.getPrice());
         planeRepository.save(plane);
         return plane;
     }

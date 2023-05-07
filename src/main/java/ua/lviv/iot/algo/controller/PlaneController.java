@@ -1,10 +1,10 @@
 package ua.lviv.iot.algo.controller;
 
+import com.example.lab6.Plane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.lab6.Plane;
 import service.PlaneServicee;
 
 import javax.validation.Valid;

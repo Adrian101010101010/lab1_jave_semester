@@ -46,7 +46,7 @@ public class AerialVehicleWriter {
             throw new RuntimeException(e);
         }
     }
-                 public static void main(String[] args) throws IOException {
+                 public static  void main(String[] args) throws IOException {
         List<AerialVehicle> aerialVehicleList = new ArrayList<>();
         aerialVehicleList.add(new Drone(100, "DJI", 100));
         aerialVehicleList.add(new Helicopter(3500, "srt"));

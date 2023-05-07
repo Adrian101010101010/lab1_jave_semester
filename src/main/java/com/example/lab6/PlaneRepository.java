@@ -21,13 +21,12 @@ public class PlaneRepository implements JpaRepository<Plane, Long> {
 
     @Override
     public Plane save(Plane plane) {
-      return null;  // код для створення нового літака
+      return null;
     }
 
     @Override
     public Plane saveAndFlush(Plane plane) {
-      return null;  // код для оновлення інформації про існуючий літак
-    }
+      return null;  }
 
     @Override
     public void deleteById(Long id) {
@@ -136,7 +135,7 @@ public class PlaneRepository implements JpaRepository<Plane, Long> {
     }
 
     @Override
-    public void deleteAllInBatch(Iterable<Plane> entities) {
+    public  void deleteAllInBatch(Iterable<Plane> entities) {
 
     }
 
