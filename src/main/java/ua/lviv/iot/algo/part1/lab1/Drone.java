@@ -1,10 +1,6 @@
 package ua.lviv.iot.algo.part1.lab1;
 
 
-import lombok.ToString;
-
-import java.io.BufferedWriter;
-import java.io.IOException;
 
 
 /**
@@ -25,17 +21,7 @@ public class Drone extends AerialVehicle {
     /**
      * The battery capacity of the drone in mAh.
      */
-    private int batteryCapacity;
 
-    /**
-     * The charge consumption per minute of flight in mAh.
-     */
-    private int chargeConsumptionPerMinuteOfFlight;
-
-    /**
-     * The speed of the drone in km/h.
-     */
-    private int speed;
 
     /**
      * The manufacturer of the drone.
@@ -99,13 +85,7 @@ public class Drone extends AerialVehicle {
      *
      * @return a string representation of the object in CSV format
      */
-    public String toCSV() {
-        return super.toCSV() + ","
-                + batteryCapacity + ","
-                + chargeConsumptionPerMinuteOfFlight + ","
-                + speed + ","
-                + manufacturer;
-    }
+
 
     /**
      * The value representing half battery capacity.
@@ -121,10 +101,8 @@ public class Drone extends AerialVehicle {
      */
 
     public Drone fast(final int acceleration) {
-        int newSpeed;
-        int maxSpeed = getMaxSpeed();
-        newSpeed = speed + acceleration;
-        if (newSpeed > maxSpeed) {
+
+
             speed = maxSpeed;
         }
         if (batteryCapacity == halfBatteryCapacity) {
@@ -134,18 +112,5 @@ public class Drone extends AerialVehicle {
             System.out.println("speed = 0");
         }
         return DEFAULT_DRONE;
-    }
-
-    /**
-     * Writes this Drone to the specified BufferedWriter.
-     *
-     * @param writer the BufferedWriter to write to
-     * @throws IOException if an I/O error occurs
-     */
-    public final void write(final BufferedWriter writer) throws IOException {
-        writeHeader(writer);
-        writer.write(this.toCSV());
-        writer.newLine();
-    }
 
 }

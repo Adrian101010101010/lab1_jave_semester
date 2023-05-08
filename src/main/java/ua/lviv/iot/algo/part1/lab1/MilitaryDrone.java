@@ -2,6 +2,7 @@ package ua.lviv.iot.algo.part1.lab1;
 
 import lombok.ToString;
 
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 
@@ -130,8 +131,7 @@ public class MilitaryDrone extends AerialVehicle {
      * @throws IOException if an I/O error occurs
      */
     public final void write(final BufferedWriter writer) throws IOException {
-        writeHeader(writer);
-        writer.write(this.toCSV());
-        writer.newLine();
-    }
+
+
+
 }

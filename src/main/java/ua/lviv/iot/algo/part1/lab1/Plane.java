@@ -3,6 +3,7 @@ package ua.lviv.iot.algo.part1.lab1;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
+
 public class Plane extends AerialVehicle {
     /**
      * The default plane.
@@ -310,18 +311,6 @@ public class Plane extends AerialVehicle {
         if (newSpeed == TARGET_SPEED) {
             System.out.println("newSpeed = " + TARGET_SPEED);
         }
-    }
 
-    /**
-     * Writes the plane data to a file using a BufferedWriter.
-     *
-     * @param writer the BufferedWriter to use for writing
-     * @throws IOException if an I/O error occurs
-     */
-    public final void write(final BufferedWriter writer) throws IOException {
-        writeHeader(writer);
-        writer.write(this.toCSV());
-        writer.newLine();
-    }
 
 }

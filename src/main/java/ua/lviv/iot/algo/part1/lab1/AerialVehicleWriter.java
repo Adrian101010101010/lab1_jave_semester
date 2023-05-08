@@ -3,6 +3,7 @@ package ua.lviv.iot.algo.part1.lab1;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,10 +21,7 @@ public class AerialVehicleWriter {
      * The header for the CSV file.
      */
     private static final String CSV_HEADER = "maxSpeed, "
-            + "feliveryWeight, batteryCapacity, "
-            + "chargeConsumptionPerMinuteOfFlight, speed, "
-            + "manufacturer, maxAltitude, id, currentFuel,"
-            + " currentAltitude, flightRange, speedNow";
+
 
     /**
      * Writes a list of AerialVehicles to a CSV file.

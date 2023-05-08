@@ -35,6 +35,7 @@ public abstract class AerialVehicle {
         return feliveryWeight;
     }
 
+
     /**
      * Returns a string representation of the headers for a CSV file.
      *
@@ -52,4 +53,5 @@ public abstract class AerialVehicle {
     public String toCSV() {
         return maxSpeed + "," + feliveryWeight;
     }
+
 }

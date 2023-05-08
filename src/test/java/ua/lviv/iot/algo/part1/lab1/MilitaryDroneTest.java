@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MilitaryDroneTest {
 
+
     MilitaryDrone  militaryDrone = new MilitaryDrone ("Test manufacturer",0);
     @Test
     void testPPOSee() {
@@ -29,5 +30,5 @@ class MilitaryDroneTest {
     @Test
     void testPPOSee1() {
 
-    }
+}
 }

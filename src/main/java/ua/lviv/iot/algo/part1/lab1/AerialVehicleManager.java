@@ -4,19 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class AerialVehicleManager {
-    /**
-     * A list of aerial vehicles.
-     */
-    private static final List<AerialVehicle> AERIAL_VEHICLE_LIST =
-            new LinkedList<>();
-
-    /**
-     * Adds an aerial vehicle to the list of aerial vehicles.
-     *
-     * @param aerialVehicle the aerial vehicle to add
-     */
-    public static void addAerialVehicle(final AerialVehicle aerialVehicle) {
 
         AERIAL_VEHICLE_LIST.add(aerialVehicle);
     }
@@ -33,10 +20,8 @@ public class AerialVehicleManager {
         final MilitaryDrone militaryDrone =
                 new MilitaryDrone("Northrop crumman X-47B", 3889);
 
-        addAerialVehicle(helicopter);
-        addAerialVehicle(drone);
-        addAerialVehicle(plane);
-        addAerialVehicle(militaryDrone);
+
+
 
         for (final AerialVehicle element : AERIAL_VEHICLE_LIST) {
             System.out.println(element.toString());

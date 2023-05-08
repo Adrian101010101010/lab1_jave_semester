@@ -1,27 +1,9 @@
 package ua.lviv.iot.algo.part1.lab1;
 
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-
-/**
- * Helicopter is a class that represents a helicopter.
- */
-
-@Getter
-@NoArgsConstructor
-public class Helicopter extends AerialVehicle {
-    /**
-     * The maximum altitude of the helicopter in meters.
-     */
-    protected static final int MAX_ALTITUDE = 1000;
-
-    /**
-     * The id of the helicopter.
-     */
-    private static final int ID = 100;
 
     /**
      * The current fuel level of the helicopter in liters.
@@ -76,18 +58,7 @@ public class Helicopter extends AerialVehicle {
         }
     }
 
-    /**
-     * Returns a string representation of the headers for a CSV file.
-     *
-     * @return a string representation of the headers for a CSV file
-     */
-    public String getHeaders() {
-        return super.getHeaders() + ","
-                + "Max_Altitude,"
-                + "ID," + "Current_Fuel,"
-                + "currentAltitude,"
-                + "manufacturer";
-    }
+
 
     /**
      * Returns a string representation of the object in CSV format.
@@ -180,24 +151,6 @@ public class Helicopter extends AerialVehicle {
      * @return the default helicopter
      */
     public Helicopter accelerateHelicopter(final int speed) {
-        int newSpeed;
-        int maxSpeed = getMaxSpeed();
-        newSpeed = speed;
-        if (newSpeed > maxSpeed) {
-            System.out.println("maxSpeed = 300");
-        }
-        return DEFAULT_HELICOPTER;
-    }
 
-    /**
-     * Writes the helicopter data to a file using a BufferedWriter.
-     *
-     * @param writer the BufferedWriter to use for writing
-     * @throws IOException if an I/O error occurs
-     */
-    public final void write(final BufferedWriter writer) throws IOException {
-        writeHeader(writer);
-        writer.write(this.toCSV());
-        writer.newLine();
     }
 }
