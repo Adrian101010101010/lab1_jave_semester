@@ -9,5 +9,8 @@ class DroneTest {
     @Test
 
     void testFast() {
-
-}
+        Drone drone = new Drone(1999,"Test manufacturer", 100);
+        drone.fast(200);
+        int expectedSpeed = 0;
+        int actualSpeed = drone.getMaxSpeed();
+        assertEquals(expectedSpeed, actualSpeed);

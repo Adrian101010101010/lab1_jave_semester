@@ -3,53 +3,69 @@ package ua.lviv.iot.algo.part1.lab1;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * AerialVehicleWriter is a class
+ * that writes a list of AerialVehicles to a CSV file.
+ */
 public class AerialVehicleWriter {
-    public static final String newLineSeparator = "\n";
-    private static final String CSVHeader = "maxSpeed, "
-            + "feliveryWeight, batteryCapacity, "
-            + "chargeConsumptionPerMinuteOfFlight, speed, "
-            + "manufacturer, maxAltitude, id, currentFuel,"
-            + " currentAltitude, flightRange, speedNow";
+    /**
+     * The new line separator for the CSV file.
+     */
+    public static final String NEW_LINE_SEPARATOR = "\n";
 
-    public void writeToFile(List<AerialVehicle> aerialVehicleList, String fileName)
-            throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+    /**
+     * The header for the CSV file.
+     */
+    private static final String CSV_HEADER = "maxSpeed, "
 
-        writer.write(CSVHeader);
-        writer.append(newLineSeparator);
-        for (AerialVehicle aerialVehicle : aerialVehicleList) {
-            writer.write(aerialVehicle.toCSV());
-            writer.append(newLineSeparator);
-        }
-        writer.close();
 
-        Drone drone = new Drone(
-                100,"DJI",100);
-        BufferedWriter writer1 = new BufferedWriter(
-                new FileWriter("drones.csv"));
-        drone.write(writer1);
-        writer1.close();
+    /**
+     * Writes a list of AerialVehicles to a CSV file.
+     *
+     * @param aerialVehicleList the list of AerialVehicles to write
+     * @param fileName the name of the file to write to
+     * @throws IOException if an I/O error occurs
+     */
+    public static void writeToFile(final List<AerialVehicle> aerialVehicleList,
+                                   final String fileName) throws IOException {
+                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
 
-        Helicopter helicopter = new Helicopter(
-                3500,"srt");
-        BufferedWriter writer2 = new BufferedWriter(
-                new FileWriter("helicopters.csv"));
-        helicopter.write(writer2);
-        writer2.close();
+                     writer.write(CSV_HEADER);
+                     writer.append(NEW_LINE_SEPARATOR);
+                     for (AerialVehicle aerialVehicle : aerialVehicleList) {
+                         writer.write(aerialVehicle.toCSV());
+                         writer.append(NEW_LINE_SEPARATOR);
+                     }
+                 } catch (IOException e) {
+                     throw new RuntimeException(e);
+                 }
+                 final int droneWeight = 100;
+        final String droneModel = "DJI";
+        final int droneSpeed = 100;
+        final String droneFileName = "drones.csv";
 
-        MilitaryDrone militaryDrone = new MilitaryDrone(
-                "shark",1000);
-        BufferedWriter writer3 = new BufferedWriter(
-                new FileWriter("militaryDrones.csv"));
-        militaryDrone.write(writer3);
-        writer3.close();
+        final int helicopterWeight = 3500;
+        final String helicopterModel = "srt";
+        final String helicopterFileName = "helicopters.csv";
 
-        Plane plane = new Plane("746", 600);
-        BufferedWriter writer4 = new BufferedWriter(
-                new FileWriter("planes.csv"));
-        plane.write(writer4);
-        writer4.close();
+        final String militaryDroneModel = "shark";
+        final int militaryDroneWeight = 1000;
+        final String militaryDroneFileName = "militaryDrones.csv";
+
+        final String planeModel = "746";
+        final int planeSpeed = 600;
+        final String planeFileName = "planes.csv";
+
+        List<AerialVehicle> aerialVehicleList1 = new ArrayList<>();
+        aerialVehicleList1.add(new Drone(droneWeight, droneModel, droneSpeed));
+        aerialVehicleList1.add(new Helicopter(helicopterWeight, helicopterModel));
+        aerialVehicleList1.add(new MilitaryDrone(militaryDroneModel, militaryDroneWeight));
+        aerialVehicleList1.add(new Plane(planeModel, planeSpeed));
+
+        writeToFile(aerialVehicleList, "aerialVehicles.csv");
     }
 }
