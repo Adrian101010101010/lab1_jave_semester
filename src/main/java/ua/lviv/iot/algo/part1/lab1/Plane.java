@@ -4,7 +4,7 @@ import lombok.ToString;
 
 @ToString
 public class Plane extends AerialVehicle{
-
+    private  String manufacturer;
     private int speedNow;
 
     public   Plane (String manufacturer, int speedNow){
@@ -18,11 +18,16 @@ public class Plane extends AerialVehicle{
 
     public  Plane fast(int acceleration){
         int newSpeed;
+        int maxSpeed = getMaxSpeed();
         newSpeed = speedNow + acceleration;
-        if (newSpeed > maxSpeed){
-            newSpeed = maxSpeed;
-            maxSpeed = 600;
+        if (maxSpeed == 568){
+            System.out.println("maxSpeed = 568");
+        }
+        if (newSpeed == 360){
+            System.out.println("newSpeed = 360");
         }
         return defaultPlane;
     }
+
+
 }

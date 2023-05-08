@@ -5,7 +5,7 @@ import lombok.ToString;
 @ToString
 
 public class MilitaryDrone extends AerialVehicle{
-
+    private  String manufacturer;
     private int flightRange;
 
     public MilitaryDrone(String manufacturer,int flightRange){
@@ -29,4 +29,6 @@ public class MilitaryDrone extends AerialVehicle{
         }
         return defaultMilitaryDrone;
     }
+
+
 }
