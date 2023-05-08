@@ -5,6 +5,7 @@ public abstract class AerialVehicle {
 
     private int maxSpeed;
 
+
     private int feliveryWeight;
 
 
@@ -23,4 +24,5 @@ public abstract class AerialVehicle {
     public String toCSV() {
         return maxSpeed + "," + feliveryWeight;
     }
+
 }

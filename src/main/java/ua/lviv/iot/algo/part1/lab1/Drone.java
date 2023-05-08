@@ -1,6 +1,7 @@
 package ua.lviv.iot.algo.part1.lab1;
 
 
+
 import lombok.ToString;
 
 import java.io.BufferedWriter;
@@ -61,15 +62,13 @@ public class Drone extends AerialVehicle {
             System.out.println("speed = 150");
         }
         if (batteryCapacity == 0) {
-            System.out.println("speed = 0");
-        }
-        return defaultDrone;
-    }
+
 
     public void write(BufferedWriter writer) throws IOException {
         writeHeader(writer);
         writer.write(this.toCSV());
         writer.newLine();
     }
+
 
 }

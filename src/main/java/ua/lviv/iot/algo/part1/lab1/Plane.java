@@ -2,6 +2,7 @@ package ua.lviv.iot.algo.part1.lab1;
 
 import lombok.ToString;
 
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 
@@ -13,9 +14,8 @@ public class Plane extends AerialVehicle {
     private int speedNow; //speedNow
 
     public Plane(String manufacturer, int speedNow) {
-        this.manufacturer = manufacturer;
-        this.speedNow = speedNow;
-    }
+
+
 
     public Plane() {
     }
@@ -48,15 +48,12 @@ public class Plane extends AerialVehicle {
             System.out.println("maxSpeed = 568");
         }
         if (newSpeed == 360) {
-            System.out.println("newSpeed = 360");
-        }
-        return defaultPlane;
-    }
 
     public void write(BufferedWriter writer) throws IOException {
         writeHeader(writer);
         writer.write(this.toCSV());
         writer.newLine();
     }
+
 
 }

@@ -2,6 +2,7 @@ package ua.lviv.iot.algo.part1.lab1;
 
 import lombok.ToString;
 
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 
@@ -14,9 +15,8 @@ public class MilitaryDrone extends AerialVehicle {
     private int flightRange;
 
     public MilitaryDrone(String manufacturer, int flightRange) {
-        this.manufacturer = manufacturer;
-        this.flightRange = flightRange;
-    }
+
+
 
     public MilitaryDrone() {
     }
@@ -49,14 +49,13 @@ public class MilitaryDrone extends AerialVehicle {
             System.out.println("дрон нічия");
         }
         if (percentageOfInvisibility == 0) {
-            System.out.println("дрон програш");
-        }
-        return defaultMilitaryDrone;
-    }
+
+
 
     public void write(BufferedWriter writer) throws IOException {
         writeHeader(writer);
         writer.write(this.toCSV());
         writer.newLine();
     }
+
 }
