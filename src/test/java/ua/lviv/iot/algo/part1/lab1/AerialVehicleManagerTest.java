@@ -1,22 +1,9 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 /*
 class AerialVehicleManagerTest {
-
-    @org.junit.jupiter.api.Test
-    void addAerialVehicle() {
-        Drone drone = new Drone(10000, "Im", 10);
-        Helicopter helicopter = new Helicopter(2, "srt");
-        Plane plane = new Plane("Boeing - 777", 350);
-        MilitaryDrone militaryDrone = new MilitaryDrone("Northrop crumman X-47B", 3889);
-
-        assertEquals(drone, AerialVehicleManager.addAerialVehicle(drone));
-        assertEquals(helicopter, AerialVehicleManager.addAerialVehicle(helicopter));
-        assertEquals(plane, AerialVehicleManager.addAerialVehicle(plane));
-        assertEquals(militaryDrone, AerialVehicleManager.addAerialVehicle(militaryDrone));
-    }
-
     @org.junit.jupiter.api.Test
     void AerialVehicleMethods() {
         Drone drone = new Drone(100000, "Im", 10);
@@ -39,7 +26,7 @@ class AerialVehicleManagerTest {
         Plane plane1 = new Plane("Boeing - 747", 1000);
         Plane plane2 = new Plane("Boeing - 777", 3000);
         MilitaryDrone militaryDrone1 = new MilitaryDrone("MQ-9 Reaper", 2000);
-        MilitaryDrone militaryDrone2 = new MilitaryDrone("North",1000);
+        MilitaryDrone militaryDrone2 = new MilitaryDrone("North", 1000);
 
         AerialVehicleManager.addAerialVehicle(drone1);
         AerialVehicleManager.addAerialVehicle(drone2);
@@ -50,8 +37,14 @@ class AerialVehicleManagerTest {
         AerialVehicleManager.addAerialVehicle(militaryDrone1);
         AerialVehicleManager.addAerialVehicle(militaryDrone2);
     }
+    @org.junit.jupiter.api.Test
+    void testMain() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent)); //Create a stream to store the output
+
+        AerialVehicleManager.main(null);  //// Call the main method
+    }
+}
+*/
 
 
-
-
- */

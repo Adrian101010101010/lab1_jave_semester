@@ -3,50 +3,76 @@ package ua.lviv.iot.algo.part1.lab1;
 import java.util.LinkedList;
 import java.util.List;
 
-/*
-public class AerialVehicleManager {
-    private static final List<AerialVehicle> list = new LinkedList<>();
 
-    public static AerialVehicle addAerialVehicle(final AerialVehicle aerialVehicle ){
-        list.add(aerialVehicle);
-        return aerialVehicle;
+public class AerialVehicleManager {
+    /**
+     * A list of aerial vehicles.
+     */
+    private static final List<AerialVehicle> AERIAL_VEHICLE_LIST =
+            new LinkedList<>();
+
+    /**
+     * Adds an aerial vehicle to the list of aerial vehicles.
+     *
+     * @param aerialVehicle the aerial vehicle to add
+     */
+    public static void addAerialVehicle(final AerialVehicle aerialVehicle) {
+
+        AERIAL_VEHICLE_LIST.add(aerialVehicle);
     }
 
-    public static void main(String[] args){
-        Drone drone = new Drone(100000, "Im",10);
-        Helicopter helicopter = new  Helicopter(2,"srt");
-        Plane plane = new Plane("Boeing - 777",350);
-        MilitaryDrone militaryDrone = new MilitaryDrone("Northrop crumman X-47B",3889);
+    /**
+     * Void.
+     *
+     * @param args void main
+     */
+    public static void main(final String[] args) {
+        final Drone drone = new Drone(100000, "Im", 10);
+        final Helicopter helicopter = new Helicopter(2, "srt");
+        final Plane plane = new Plane("Boeing - 777", 350);
+        final MilitaryDrone militaryDrone =
+                new MilitaryDrone("Northrop crumman X-47B", 3889);
 
         addAerialVehicle(helicopter);
         addAerialVehicle(drone);
         addAerialVehicle(plane);
         addAerialVehicle(militaryDrone);
 
-       for (AerialVehicle element : list) {
+        for (final AerialVehicle element : AERIAL_VEHICLE_LIST) {
             System.out.println(element.toString());
         }
 
-        for (AerialVehicle element : list) {
+        final int helicopterAscendHeight = 20;
+        final int helicopterDescendHeight = 10;
+        final int helicopterRefuelAmount = 100;
+        final int helicopterAcceleration = 20;
+        final int droneSpeed = 50;
+        final int planeSpeed = 60;
+        final int militaryDronePposeeDistance = 100;
+
+        for (final AerialVehicle element : AERIAL_VEHICLE_LIST) {
             System.out.println(helicopter.takeOff()
-                    .ascend(20)
-                    .descend(10)
-                    .refuel(100)
-                    .accelerateHelicopter(20));
-            System.out.println(drone.fast(50));
-            System.out.println(plane.fast(60));
-            System.out.println(militaryDrone.PPOSee(100));
+                    .ascend(helicopterAscendHeight)
+                    .descend(helicopterDescendHeight)
+                    .refuel(helicopterRefuelAmount)
+                    .accelerateHelicopter(helicopterAcceleration));
+            System.out.println(drone.fast(droneSpeed));
+            System.out.println(militaryDrone
+                    .ppoSee(militaryDronePposeeDistance));
             System.out.println(element.toString());
         }
+
+        final int minDeliveryWeight = 2000;
+        final int maxDeliveryWeight = 1000;
 
         System.out.println(" ");
-        list.stream()
-                .filter(a -> a.flyingDistance()> 2000)
+        AERIAL_VEHICLE_LIST
+                .stream().filter(a -> a.getFeliveryWeight() > minDeliveryWeight)
                 .forEach(System.out::println);
 
         System.out.println(" ");
-        list.stream()
-                .filter(a -> a.feliveryWeight()<1000 )
+        AERIAL_VEHICLE_LIST
+                .stream().filter(a -> a.getFeliveryWeight() < maxDeliveryWeight)
                 .forEach(System.out::println);
     }
-}*/
+}

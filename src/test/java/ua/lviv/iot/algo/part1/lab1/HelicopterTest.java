@@ -15,7 +15,7 @@ class HelicopterTest {
     }
 
     @Test
-    void ascend() {
+    void testAscend1() {
         Helicopter helicopter = new Helicopter();
         helicopter.ascend(3000);
         int expectedAltitude = 0;
@@ -63,7 +63,7 @@ class HelicopterTest {
         Helicopter result = helicopter.ascend(500);
         assertEquals(0, result.getCurrentAltitude());
 
-        Helicopter result1 = helicopter.ascend(Helicopter.maxAltitude);
+        Helicopter result1 = helicopter.ascend(Helicopter.MAX_ALTITUDE);
         assertEquals(0, result1.getCurrentAltitude());
     }
 
