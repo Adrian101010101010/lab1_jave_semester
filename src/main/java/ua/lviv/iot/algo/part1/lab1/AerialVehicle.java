@@ -6,6 +6,23 @@ public abstract class AerialVehicle {
     private int maxSpeed;
 
 
+    private int feliveryWeight;
 
-   public int getMaxSpeed(){return maxSpeed;}
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public int getFeliveryWeight() {
+        return feliveryWeight;
+    }
+
+    public String getHeaders() {
+        return "maxSpeed" + "," + "feliveryWeight";
+    }
+
+    public String toCSV() {
+        return maxSpeed + "," + feliveryWeight;
+    }
+
 }

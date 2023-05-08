@@ -39,19 +39,12 @@ class AerialVehicleManagerTest {
         Plane plane1 = new Plane("Boeing - 747", 1000);
         Plane plane2 = new Plane("Boeing - 777", 3000);
         MilitaryDrone militaryDrone1 = new MilitaryDrone("MQ-9 Reaper", 2000);
-        MilitaryDrone militaryDrone2 = new MilitaryDrone("North",1000);
 
-        AerialVehicleManager.addAerialVehicle(drone1);
-        AerialVehicleManager.addAerialVehicle(drone2);
-        AerialVehicleManager.addAerialVehicle(helicopter1);
-        AerialVehicleManager.addAerialVehicle(helicopter2);
-        AerialVehicleManager.addAerialVehicle(plane1);
-        AerialVehicleManager.addAerialVehicle(plane2);
-        AerialVehicleManager.addAerialVehicle(militaryDrone1);
-        AerialVehicleManager.addAerialVehicle(militaryDrone2);
-    }
+        MilitaryDrone militaryDrone2 = new MilitaryDrone("North", 1000);
 
 
+}
+
+*/
 
 
- */
